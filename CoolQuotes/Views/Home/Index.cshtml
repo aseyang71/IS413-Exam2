@@ -1,0 +1,61 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model IEnumerable<QuoteList>
+
+<div class="text-center">
+    <h1 class="display-4">View All Quotes</h1>
+</div>
+
+<div class="container">
+    <div class="row">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Quote</th>
+                    <th scope="col">Speaker</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Subject</th>
+                    <th scope="col">Citation</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Remove</th>
+                </tr>
+            </thead>
+
+            @foreach (var q in Model)
+            {
+                <tbody>
+                    <tr>
+                        <th scope="row">@q.QuoteID</th>
+                        <td>@q.Quote</td>
+                        <td>@q.Speaker</td>
+                        <td>@q.Date</td>
+                        <td>@q.Subject</td>
+                        <td>@q.Citation</td>
+
+                        <td class="text-center">
+                            <form asp-action="EditQuote" method="get">
+                                <input type="hidden" name="QuoteID" value="@q.QuoteID" />
+                                <button type="submit" class="btn btn-sm btn-warning">
+                                    Edit
+                                </button>
+                            </form>
+                        </td>
+
+                        <td class="text-center">
+                            <form asp-action="DeleteQuote" method="post">
+                                <input type="hidden" name="QuoteID" value="@q.QuoteID" />
+                                <button type="submit" class="btn btn-sm btn-danger">
+                                    Remove
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+            }
+        </table>
+    </div>
+</div>
+

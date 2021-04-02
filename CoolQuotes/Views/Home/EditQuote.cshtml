@@ -1,0 +1,37 @@
+﻿@model QuoteList
+
+<form asp-action="EditQuote" method="post">
+    <div>
+        <label asp-for="QuoteID" hidden></label>
+        <input asp-for="QuoteID"/>
+    </div>
+
+    <div>
+        <label asp-for="Quote"></label>
+        <input asp-for="Quote" />
+    </div>
+
+    <div>
+        <label asp-for="Speaker"></label>
+        <input asp-for="Speaker" />
+    </div>
+
+    <div>
+        <label asp-for="Date"></label>
+        <input asp-for="Date" />
+    </div>
+
+    <div>
+        <label asp-for="Subject"></label>
+        <input asp-for="Subject" />
+    </div>
+
+    <div>
+        <label asp-for="Citation"></label>
+        <input asp-for="Citation" />
+    </div>
+
+    <button type="submit">Submit</button>
+
+    <div asp-validation-summary="All"></div>
+</form>
