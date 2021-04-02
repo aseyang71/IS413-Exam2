@@ -3,32 +3,77 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - CoolQuotes</title>
+    <title>@ViewData["Title"] - Quote Editor</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/style.css" />
+    <link rel="stylesheet" href="~/css/fixed.css" />
 </head>
-<body>
+<body data-spy="scroll" data-garget="#havbarResponsive">
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">CoolQuotes</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="EnterQuote">Add Quote</a>
-                        </li>
-                    </ul>
-                </div>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+            <a class="navbar-brand" href="index.cshtml">
+                <img src="~/img/nuno.png" />
+            </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Home" asp-action="EnterQuote">Add Quote</a>
+                    </li>
+                </ul>
             </div>
         </nav>
+
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="5000">
+            <ol class="carousel-indicators">
+                <li data-garget="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-garget="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-garget="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+
+            <div class="carousel-inner" role="listbox">
+                 Slide 1 
+                <div class="carousel-item active" style="background-image: url(img/computers.png)">
+                    <div class="carousel-caption text-center">
+                        <h1>Welcome, Professor Hilton</h1>
+                        <h3>Add Your Favorite Quote in the COOLEST Quote Editor</h3>
+                        <a class="btn btn-outline-light btn-lg" asp-controller="Home" asp-action="EnterQuote">Get Started</a>
+                    </div>
+                </div>
+
+                 Slide 2 
+                <div class="carousel-item" style="background-image: url(img/computers-2.png)">
+                    <div class="carousel-caption text-center">
+
+                    </div>
+                </div>
+
+                 Slide 3 
+                <div class="carousel-item" style="background-image: url(img/computers-3.png)">
+                    <div class="carousel-caption text-center">
+
+                    </div>
+                </div>
+                 Start Prev & Next Buttons 
+                <a class="carousel-control-prev" href="" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                </a>
+
+                <a class="carousel-control-next" href="" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                </a>
+            </div>
+        </div>
     </header>
+
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
@@ -37,7 +82,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2021 - CoolQuotes - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2021 - CoolQuotes - <a asp-area="" asp-controller="Home" asp-action="">Privacy</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

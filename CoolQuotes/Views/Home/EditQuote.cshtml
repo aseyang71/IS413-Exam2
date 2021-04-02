@@ -1,37 +1,44 @@
 ﻿@model QuoteList
+    <br />
+    <br />
+    <br />
+    <h1 class="text-center"> Enter Your Favorite Quote</h1>
+    <form asp-action="EditQuote" method="post" style="padding-bottom:300px">
 
-<form asp-action="EditQuote" method="post">
-    <div>
-        <label asp-for="QuoteID" hidden></label>
-        <input asp-for="QuoteID"/>
-    </div>
+        <div class="form-group">
+            <label asp-for="QuoteID" hidden></label>
+            <input asp-for="QuoteID" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Quote"></label>
+            <input asp-for="Quote" class="form-control" />
+        </div>
 
-    <div>
-        <label asp-for="Quote"></label>
-        <input asp-for="Quote" />
-    </div>
+        <div class="form-group">
+            <label asp-for="Speaker"></label>
+            <input asp-for="Speaker" class="form-control" />
+        </div>
 
-    <div>
-        <label asp-for="Speaker"></label>
-        <input asp-for="Speaker" />
-    </div>
+        <div class="form-group">
+            <label asp-for="Date"></label>
+            <input asp-for="Date" class="form-control" id="my-input" autofocus="autofocus" />
+        </div>
 
-    <div>
-        <label asp-for="Date"></label>
-        <input asp-for="Date" />
-    </div>
+        <div class="form-group">
+            <label asp-for="Subject"></label>
+            <input asp-for="Subject" class="form-control" />
+        </div>
 
-    <div>
-        <label asp-for="Subject"></label>
-        <input asp-for="Subject" />
-    </div>
+        <div class="form-group">
+            <label asp-for="Citation"></label>
+            <input asp-for="Citation" class="form-control" />
+        </div>
 
-    <div>
-        <label asp-for="Citation"></label>
-        <input asp-for="Citation" />
-    </div>
+        <button type="submit">Submit</button>
 
-    <button type="submit">Submit</button>
+        <div asp-validation-summary="All"></div>
+    </form>
 
-    <div asp-validation-summary="All"></div>
-</form>
+    <script>if (!("autofocus" in document.createElement("input"))) {
+            document.getElementById("my-input").focus();
+        }</script>
